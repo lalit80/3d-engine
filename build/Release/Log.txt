@@ -1,0 +1,20 @@
+[INFO] Program started successfully
+
+[INFO] OPENGL INFORMATION
+
+[INFO] ------------------
+
+[INFO] OpenGL Vendor : Intel
+
+[INFO] OpenGL Renderer : Intel(R) Iris(R) Xe Graphics
+
+[INFO] OpenGL Version : 4.6.0 - Build 30.0.100.9864
+
+[INFO] GLSL Version : 4.60 - Build 30.0.100.9864
+
+[INFO] ------------------
+
+[INFO] Initialize() successful
+
+[INFO] Program terminated successfully
+

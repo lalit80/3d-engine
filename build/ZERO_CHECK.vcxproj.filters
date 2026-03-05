@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\lalit\Documents\rtr\3d-engine\build\CMakeFiles\46b7924cb9ff85aea85dbe9a8f214993\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{DF0000F2-2478-3E1F-B311-8DB15540E97E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
