@@ -156,6 +156,12 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
     void toggleFullScreen(void);
     void resize(int, int);
     void uninitialize(void);
+
+    if (Editor::IsInitialized()) {
+        extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+        if (ImGui_ImplWin32_WndProcHandler(hwnd, iMsg, wParam, lParam))
+            return true;
+    }
     
     switch(iMsg)
     {
@@ -210,24 +216,20 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
         {
             if(!gRightMousePressed)
                 break;
-                
-            UINT dataSize;
-            GetRawInputData((HRAWINPUT)lParam, RID_INPUT, NULL, &dataSize, sizeof(RAWINPUTHEADER));
 
-            BYTE* rawData = new BYTE[dataSize];
+            UINT dataSize = sizeof(RAWINPUT);
+            RAWINPUT raw;
 
-            if(GetRawInputData((HRAWINPUT)lParam, RID_INPUT, rawData, &dataSize, sizeof(RAWINPUTHEADER)) == dataSize) {
-                RAWINPUT* raw = (RAWINPUT*)rawData;
-
-                if(raw->header.dwType == RIM_TYPEMOUSE) {
-                    float xoffset = (float)raw->data.mouse.lLastX;
-                    float yoffset = (float)raw->data.mouse.lLastY;
+            if(GetRawInputData((HRAWINPUT)lParam, RID_INPUT, &raw, &dataSize, sizeof(RAWINPUTHEADER)) == dataSize)
+            {
+                if(raw.header.dwType == RIM_TYPEMOUSE)
+                {
+                    float xoffset = (float)raw.data.mouse.lLastX;
+                    float yoffset = (float)raw.data.mouse.lLastY;
 
                     camera.ProcessMouseMovement(xoffset, -yoffset);
                 }
             }
-            
-            delete[] rawData;
         }
         break;
 
@@ -278,7 +280,6 @@ int initialize(void)
     void printGLInfo(void);
     void resize(int, int);
     void uninitialize(void);
-    void lockCursorToWindow(void);
     int setupPixelFormat(void);
 
     // code
@@ -297,14 +298,14 @@ int initialize(void)
 
     // initialize timer
     Timer::Init();
-    
-    // lock cursor to the window
-    lockCursorToWindow();
+
+    // initialize editor
+    Editor::Init(ghwnd);
 
     // print opengl information
     printGLInfo();
 
-    triangleShader = new Shader("../../shaders/triangle.vs", "../../shaders/triangle.fs");
+    triangleShader = new Shader("shaders/triangle.vs", "shaders/triangle.fs");
     
     // get the required uniform location from the shader
     mvpMatrixUniform = glGetUniformLocation(triangleShader->getID(), "uMVPMatrix");
@@ -381,7 +382,12 @@ void display(void)
     glBindVertexArray(0);
 
     // unuse shader program object
-    glUseProgram(0);
+    triangleShader->unuse();
+
+    // render editor
+    Editor::Begin();
+    Editor::Draw();
+    Editor::End();    
 
     // swap the buffers
     SwapBuffers(ghdc);
@@ -416,9 +422,8 @@ void uninitialize(void)
         gbFullScreen = FALSE;
     }
 
-    // free cursor
-    ClipCursor(NULL);
-    ShowCursor(TRUE);
+    // shutdown editor
+    Editor::Shutdown();
 
     // free vbo of position
     if (vbo_position) {
@@ -461,6 +466,7 @@ void uninitialize(void)
     }
 
     LOG_INFO("Program terminated successfully\n");
+    
     // close the file
     Logger::Shutdown();
 }
@@ -512,25 +518,6 @@ void toggleFullScreen(void)
         SetWindowPos(ghwnd, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOOWNERZORDER | SWP_NOZORDER | SWP_FRAMECHANGED);
         ShowCursor(TRUE);
     }
-}
-
-void lockCursorToWindow(void)
-{
-    RECT rect;
-    GetClientRect(ghwnd, &rect);
-
-    POINT ul = {rect.left, rect.top};
-    POINT lr = {rect.right, rect.bottom};
-
-    ClientToScreen(ghwnd, &ul);
-    ClientToScreen(ghwnd, &lr);
-
-    rect.left = ul.x;
-    rect.top = ul.y;
-    rect.right = lr.x;
-    rect.bottom = lr.y;
-
-    ClipCursor(&rect);
 }
 
 int setupPixelFormat(void)

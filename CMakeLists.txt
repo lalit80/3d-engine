@@ -8,6 +8,8 @@ project(ThreeDEngine)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+add_subdirectory(includes/imgui)
+
 # Source files
 file(GLOB_RECURSE ENGINE_SOURCES
     src/*.cpp
@@ -29,4 +31,5 @@ target_link_libraries(ThreeDEngine PRIVATE
     opengl32
     user32
     gdi32
+    imgui
 )

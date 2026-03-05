@@ -178,6 +178,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{89880E8F-DF5D-309F-8C05-CD2FA5991662}</Project>
       <Name>ThreeDEngine</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\lalit\Documents\rtr\3d-engine\build\includes\imgui\imgui.vcxproj">
+      <Project>{5B4D995B-5031-3FCE-8D3F-FEA7FAFA3D1E}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

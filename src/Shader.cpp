@@ -160,6 +160,11 @@ void Shader::use()
     glUseProgram(ID);
 }
 
+void Shader::unuse()
+{
+    glUseProgram(0);
+}
+
 unsigned int Shader::getID() const
 {
     return ID;

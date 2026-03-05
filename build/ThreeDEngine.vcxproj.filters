@@ -4,6 +4,9 @@
     <ClCompile Include="C:\Users\lalit\Documents\rtr\3d-engine\src\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\lalit\Documents\rtr\3d-engine\src\Editor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\lalit\Documents\rtr\3d-engine\src\Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

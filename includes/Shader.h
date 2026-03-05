@@ -23,6 +23,7 @@ public:
            const char* tessEvalPath = nullptr);
 
     void use();
+    void unuse();
 
     unsigned int getID() const;
 
