@@ -116,7 +116,7 @@ events:
       The output was:
       0
       MSBuild version 17.14.40+3e7442088 for .NET Framework
-      Build started 05-03-2026 12:38:30.
+      Build started 05-03-2026 13:52:38.
       
       Project "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\4.2.3\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -145,7 +145,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.67
+      Time Elapsed 00:00:00.91
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -1122,7 +1122,7 @@ events:
       The output was:
       0
       MSBuild version 17.14.40+3e7442088 for .NET Framework
-      Build started 05-03-2026 12:38:32.
+      Build started 05-03-2026 13:52:39.
       
       Project "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\4.2.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -1646,8 +1646,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-4b9u3t"
-      binary: "C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-4b9u3t"
+      source: "C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-pwyk7q"
+      binary: "C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-pwyk7q"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1656,39 +1656,39 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-4b9u3t'
+        Change Dir: 'C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-pwyk7q'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_88d9f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_39ca5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.40+3e7442088 for .NET Framework
-        Build started 05-03-2026 12:38:33.
+        Build started 05-03-2026 13:52:41.
         
-        Project "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4b9u3t\\cmTC_88d9f.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pwyk7q\\cmTC_39ca5.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4b9u3t\\Debug\\".
-          Creating directory "cmTC_88d9f.dir\\Debug\\cmTC_88d9f.tlog\\".
+          Creating directory "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pwyk7q\\Debug\\".
+          Creating directory "cmTC_39ca5.dir\\Debug\\cmTC_39ca5.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_88d9f.dir\\Debug\\cmTC_88d9f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_88d9f.dir\\Debug\\cmTC_88d9f.tlog\\unsuccessfulbuild".
+          Creating "cmTC_39ca5.dir\\Debug\\cmTC_39ca5.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_39ca5.dir\\Debug\\cmTC_39ca5.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_88d9f.dir\\Debug\\\\" /Fd"cmTC_88d9f.dir\\Debug\\vc143.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_39ca5.dir\\Debug\\\\" /Fd"cmTC_39ca5.dir\\Debug\\vc143.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35223 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_88d9f.dir\\Debug\\\\" /Fd"cmTC_88d9f.dir\\Debug\\vc143.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_39ca5.dir\\Debug\\\\" /Fd"cmTC_39ca5.dir\\Debug\\vc143.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4b9u3t\\Debug\\cmTC_88d9f.exe" /INCREMENTAL /ILK:"cmTC_88d9f.dir\\Debug\\cmTC_88d9f.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-4b9u3t/Debug/cmTC_88d9f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-4b9u3t/Debug/cmTC_88d9f.lib" /MACHINE:X64  /machine:x64 cmTC_88d9f.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_88d9f.vcxproj -> C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4b9u3t\\Debug\\cmTC_88d9f.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pwyk7q\\Debug\\cmTC_39ca5.exe" /INCREMENTAL /ILK:"cmTC_39ca5.dir\\Debug\\cmTC_39ca5.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-pwyk7q/Debug/cmTC_39ca5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-pwyk7q/Debug/cmTC_39ca5.lib" /MACHINE:X64  /machine:x64 cmTC_39ca5.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_39ca5.vcxproj -> C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pwyk7q\\Debug\\cmTC_39ca5.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_88d9f.dir\\Debug\\cmTC_88d9f.tlog\\unsuccessfulbuild".
-          Touching "cmTC_88d9f.dir\\Debug\\cmTC_88d9f.tlog\\cmTC_88d9f.lastbuildstate".
-        Done Building Project "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4b9u3t\\cmTC_88d9f.vcxproj" (default targets).
+          Deleting file "cmTC_39ca5.dir\\Debug\\cmTC_39ca5.tlog\\unsuccessfulbuild".
+          Touching "cmTC_39ca5.dir\\Debug\\cmTC_39ca5.tlog\\cmTC_39ca5.lastbuildstate".
+        Done Building Project "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-pwyk7q\\cmTC_39ca5.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.75
+        Time Elapsed 00:00:00.63
         
       exitCode: 0
   -
@@ -1728,8 +1728,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-u14de8"
-      binary: "C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-u14de8"
+      source: "C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-jptemp"
+      binary: "C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-jptemp"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1739,39 +1739,39 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-u14de8'
+        Change Dir: 'C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-jptemp'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_6e8ea.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_aebe9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.40+3e7442088 for .NET Framework
-        Build started 05-03-2026 12:38:34.
+        Build started 05-03-2026 13:52:42.
         
-        Project "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14de8\\cmTC_6e8ea.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jptemp\\cmTC_aebe9.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14de8\\Debug\\".
-          Creating directory "cmTC_6e8ea.dir\\Debug\\cmTC_6e8ea.tlog\\".
+          Creating directory "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jptemp\\Debug\\".
+          Creating directory "cmTC_aebe9.dir\\Debug\\cmTC_aebe9.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_6e8ea.dir\\Debug\\cmTC_6e8ea.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_6e8ea.dir\\Debug\\cmTC_6e8ea.tlog\\unsuccessfulbuild".
+          Creating "cmTC_aebe9.dir\\Debug\\cmTC_aebe9.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_aebe9.dir\\Debug\\cmTC_aebe9.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_6e8ea.dir\\Debug\\\\" /Fd"cmTC_6e8ea.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_aebe9.dir\\Debug\\\\" /Fd"cmTC_aebe9.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35223 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_6e8ea.dir\\Debug\\\\" /Fd"cmTC_6e8ea.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /Fo"cmTC_aebe9.dir\\Debug\\\\" /Fd"cmTC_aebe9.dir\\Debug\\vc143.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14de8\\Debug\\cmTC_6e8ea.exe" /INCREMENTAL /ILK:"cmTC_6e8ea.dir\\Debug\\cmTC_6e8ea.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-u14de8/Debug/cmTC_6e8ea.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-u14de8/Debug/cmTC_6e8ea.lib" /MACHINE:X64  /machine:x64 cmTC_6e8ea.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_6e8ea.vcxproj -> C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14de8\\Debug\\cmTC_6e8ea.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jptemp\\Debug\\cmTC_aebe9.exe" /INCREMENTAL /ILK:"cmTC_aebe9.dir\\Debug\\cmTC_aebe9.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-jptemp/Debug/cmTC_aebe9.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/lalit/Documents/rtr/3d-engine/build/CMakeFiles/CMakeScratch/TryCompile-jptemp/Debug/cmTC_aebe9.lib" /MACHINE:X64  /machine:x64 cmTC_aebe9.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_aebe9.vcxproj -> C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jptemp\\Debug\\cmTC_aebe9.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_6e8ea.dir\\Debug\\cmTC_6e8ea.tlog\\unsuccessfulbuild".
-          Touching "cmTC_6e8ea.dir\\Debug\\cmTC_6e8ea.tlog\\cmTC_6e8ea.lastbuildstate".
-        Done Building Project "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u14de8\\cmTC_6e8ea.vcxproj" (default targets).
+          Deleting file "cmTC_aebe9.dir\\Debug\\cmTC_aebe9.tlog\\unsuccessfulbuild".
+          Touching "cmTC_aebe9.dir\\Debug\\cmTC_aebe9.tlog\\cmTC_aebe9.lastbuildstate".
+        Done Building Project "C:\\Users\\lalit\\Documents\\rtr\\3d-engine\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jptemp\\cmTC_aebe9.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.91
+        Time Elapsed 00:00:00.63
         
       exitCode: 0
   -

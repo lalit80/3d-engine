@@ -50,6 +50,7 @@ glm::mat4 perspectiveProjectionMatrix;
 
 // Camera related variables
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+BOOL gRightMousePressed = FALSE;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int iCmdShow)
 {
@@ -92,8 +93,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
                             NULL, NULL, hInstance, NULL);
     ghwnd = hwnd;
 
-    ShowWindow(hwnd, iCmdShow);
+    // register raw input device for mouse
+    RAWINPUTDEVICE rid;
+    rid.usUsagePage = 0x01;
+    rid.usUsage = 0x02; // mouse
+    rid.dwFlags = 0;
+    rid.hwndTarget = ghwnd;
+    RegisterRawInputDevices(&rid, 1, sizeof(rid));
 
+    ShowWindow(hwnd, iCmdShow);
     UpdateWindow(hwnd);
 
     // initialize
@@ -186,6 +194,49 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
         case WM_KEYUP:
             Input::KeyUp(wParam);
             break;
+        
+        case WM_RBUTTONDOWN:
+            gRightMousePressed = true;
+            ShowCursor(FALSE);
+            break;
+
+        case WM_RBUTTONUP:
+            gRightMousePressed = false;
+            ShowCursor(TRUE);
+            break;
+
+        // handle raw input for mouse movement
+        case WM_INPUT:
+        {
+            if(!gRightMousePressed)
+                break;
+                
+            UINT dataSize;
+            GetRawInputData((HRAWINPUT)lParam, RID_INPUT, NULL, &dataSize, sizeof(RAWINPUTHEADER));
+
+            BYTE* rawData = new BYTE[dataSize];
+
+            if(GetRawInputData((HRAWINPUT)lParam, RID_INPUT, rawData, &dataSize, sizeof(RAWINPUTHEADER)) == dataSize) {
+                RAWINPUT* raw = (RAWINPUT*)rawData;
+
+                if(raw->header.dwType == RIM_TYPEMOUSE) {
+                    float xoffset = (float)raw->data.mouse.lLastX;
+                    float yoffset = (float)raw->data.mouse.lLastY;
+
+                    camera.ProcessMouseMovement(xoffset, -yoffset);
+                }
+            }
+            
+            delete[] rawData;
+        }
+        break;
+
+        case WM_MOUSEWHEEL:
+        {
+            float delta = (float)GET_WHEEL_DELTA_WPARAM(wParam) / 120.0f;
+            camera.ProcessMouseScroll(delta);
+        }
+        break;
 
         case WM_CHAR:
             switch(wParam) {
@@ -227,6 +278,7 @@ int initialize(void)
     void printGLInfo(void);
     void resize(int, int);
     void uninitialize(void);
+    void lockCursorToWindow(void);
     int setupPixelFormat(void);
 
     // code
@@ -245,6 +297,9 @@ int initialize(void)
 
     // initialize timer
     Timer::Init();
+    
+    // lock cursor to the window
+    lockCursorToWindow();
 
     // print opengl information
     printGLInfo();
@@ -333,18 +388,9 @@ void display(void)
 }
 
 void update(float deltaTime) {
-    if(Input::IsKeyPressed('W') || Input::IsKeyPressed('w')) {
-        camera.ProcessKeyboard(FORWARD, deltaTime);
-    }
-    if(Input::IsKeyPressed('S') || Input::IsKeyPressed('s')) {
-        camera.ProcessKeyboard(BACKWARD, deltaTime);
-    }
-    if(Input::IsKeyPressed('A') || Input::IsKeyPressed('a')) {
-        camera.ProcessKeyboard(LEFT, deltaTime);
-    }
-    if(Input::IsKeyPressed('D') || Input::IsKeyPressed('d')) {
-        camera.ProcessKeyboard(RIGHT, deltaTime);
-    }
+    void updateCameraVectors(float);
+    
+    updateCameraVectors(deltaTime);
 }
 
 void resize(int width, int height)
@@ -369,6 +415,10 @@ void uninitialize(void)
         toggleFullScreen();
         gbFullScreen = FALSE;
     }
+
+    // free cursor
+    ClipCursor(NULL);
+    ShowCursor(TRUE);
 
     // free vbo of position
     if (vbo_position) {
@@ -464,6 +514,25 @@ void toggleFullScreen(void)
     }
 }
 
+void lockCursorToWindow(void)
+{
+    RECT rect;
+    GetClientRect(ghwnd, &rect);
+
+    POINT ul = {rect.left, rect.top};
+    POINT lr = {rect.right, rect.bottom};
+
+    ClientToScreen(ghwnd, &ul);
+    ClientToScreen(ghwnd, &lr);
+
+    rect.left = ul.x;
+    rect.top = ul.y;
+    rect.right = lr.x;
+    rect.bottom = lr.y;
+
+    ClipCursor(&rect);
+}
+
 int setupPixelFormat(void)
 {
     PIXELFORMATDESCRIPTOR pfd;
@@ -516,4 +585,20 @@ int setupPixelFormat(void)
     }
 
     return 0;
+}
+
+void updateCameraVectors(float deltaTime) {
+    // keyboard input
+    if(Input::IsKeyPressed('W') || Input::IsKeyPressed('w')) {
+        camera.ProcessKeyboard(FORWARD, deltaTime);
+    }
+    if(Input::IsKeyPressed('S') || Input::IsKeyPressed('s')) {
+        camera.ProcessKeyboard(BACKWARD, deltaTime);
+    }
+    if(Input::IsKeyPressed('A') || Input::IsKeyPressed('a')) {
+        camera.ProcessKeyboard(LEFT, deltaTime);
+    }
+    if(Input::IsKeyPressed('D') || Input::IsKeyPressed('d')) {
+        camera.ProcessKeyboard(RIGHT, deltaTime);
+    }
 }
