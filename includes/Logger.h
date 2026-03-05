@@ -15,7 +15,7 @@ public:
         Error
     };
 
-    static void Init(const std::string& filename);
+    static void Init(const std::string& filename = "Log.txt");
     static void Shutdown();
 
     static void Log(Level level, const char* format, ...);

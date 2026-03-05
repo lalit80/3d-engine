@@ -19,9 +19,6 @@ HWND ghwnd = NULL;
 DWORD dwStyle;
 WINDOWPLACEMENT wpPrev;
 
-// file io
-char gszLogFileName[] = "Log.txt";
-
 // active window related variable
 BOOL gbActiveWindow = FALSE;
 
@@ -39,6 +36,11 @@ enum {
     LRC_ATTRIBUTE_POSITION = 0,
 };
 
+enum {
+    ortographic = 0,
+    perspective
+};
+
 GLuint vao = 0;
 GLuint vbo_position = 0;
 
@@ -46,12 +48,15 @@ GLuint mvpMatrixUniform = 0;
 
 glm::mat4 perspectiveProjectionMatrix;
 
+// Camera related variables
+Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int iCmdShow)
 {
     // function declarations
     int  initialize(void);
     void display(void);
-    void update(void);
+    void update(float);
     void uninitialize(void);
 
     // variable declarations
@@ -62,7 +67,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
     BOOL bDone = FALSE;
 
     // create log file
-    Logger::Init(gszLogFileName);
+    Logger::Init();
     LOG_INFO("Program started successfully\n");
 
     wndclass.cbSize = sizeof(WNDCLASSEX);
@@ -108,6 +113,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 
     // game loop
     while(bDone == FALSE) {
+
+        Timer::Tick();
+
         if(PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
             if(msg.message == WM_QUIT) {
                 bDone = TRUE;
@@ -125,7 +133,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
                 // render
                 display();
                 // update
-                update();
+                update(Timer::GetDeltaTime());
             }
         }
     }
@@ -141,7 +149,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
     void resize(int, int);
     void uninitialize(void);
     
-
     switch(iMsg)
     {
         case WM_CREATE:
@@ -169,9 +176,15 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
                 case VK_ESCAPE:
                     gbEscapKeyIsPressed = TRUE;
                     break;
+
                 default:
                     break;
             }
+            Input::KeyDown(wParam);
+            break;
+
+        case WM_KEYUP:
+            Input::KeyUp(wParam);
             break;
 
         case WM_CHAR:
@@ -187,6 +200,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
                         gbFullScreen = FALSE;
                     }
                     break;
+
                 default:
                     break;
             }
@@ -228,6 +242,9 @@ int initialize(void)
         LOG_ERROR("glewInit() failed");
         return (-6);
     }
+
+    // initialize timer
+    Timer::Init();
 
     // print opengl information
     printGLInfo();
@@ -287,13 +304,14 @@ void display(void)
     triangleShader->use();
 
     // transformations
-    glm::mat4 modelViewMatrix = glm::mat4(1.0f);                // identity matrix
+    glm::mat4 modelMatrix = glm::mat4(1.0f);                // identity matrix
+    glm::mat4 viewMatrix = glm::mat4(1.0f);
     glm::mat4 modelViewProjectionMatrix = glm::mat4(1.0f);
     glm::mat4 translationMatrix = glm::mat4(1.0f);
-    translationMatrix = glm::translate(translationMatrix, glm::vec3(0.0f, 0.0f, -4.0f));
-    modelViewMatrix = translationMatrix;
 
-    modelViewProjectionMatrix = perspectiveProjectionMatrix * modelViewMatrix;
+    viewMatrix = camera.GetViewMatrix();
+
+    modelViewProjectionMatrix = perspectiveProjectionMatrix * viewMatrix * modelMatrix;
 
     // send this matrix to vertex shader in uniform variable
     triangleShader->setMat4("uMVPMatrix", modelViewProjectionMatrix);
@@ -314,7 +332,20 @@ void display(void)
     SwapBuffers(ghdc);
 }
 
-void update(void) {}
+void update(float deltaTime) {
+    if(Input::IsKeyPressed('W') || Input::IsKeyPressed('w')) {
+        camera.ProcessKeyboard(FORWARD, deltaTime);
+    }
+    if(Input::IsKeyPressed('S') || Input::IsKeyPressed('s')) {
+        camera.ProcessKeyboard(BACKWARD, deltaTime);
+    }
+    if(Input::IsKeyPressed('A') || Input::IsKeyPressed('a')) {
+        camera.ProcessKeyboard(LEFT, deltaTime);
+    }
+    if(Input::IsKeyPressed('D') || Input::IsKeyPressed('d')) {
+        camera.ProcessKeyboard(RIGHT, deltaTime);
+    }
+}
 
 void resize(int width, int height)
 {

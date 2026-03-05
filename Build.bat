@@ -1,7 +1,8 @@
-cl.exe /c /EHsc /I .\external\glew\include src\OGL.cpp
-
-link.exe OGL.obj /LIBPATH:.\external\glew\lib\Release\x64 user32.lib gdi32.lib /SUBSYSTEM:WINDOWS
-
-OGL
-
-del *.exe *.obj
+rmdir /s /q build
+mkdir build
+cd build
+cmake .. -G "Visual Studio 17 2022" -A x64
+cmake --build . --config Release
+cd .\Release
+ThreeDEngine.exe
+cd ..\..

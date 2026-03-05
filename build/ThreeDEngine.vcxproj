@@ -364,9 +364,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="C:\Users\lalit\Documents\rtr\3d-engine\src\Camera.cpp" />
+    <ClCompile Include="C:\Users\lalit\Documents\rtr\3d-engine\src\Input.cpp" />
     <ClCompile Include="C:\Users\lalit\Documents\rtr\3d-engine\src\Logger.cpp" />
     <ClCompile Include="C:\Users\lalit\Documents\rtr\3d-engine\src\OGL.cpp" />
     <ClCompile Include="C:\Users\lalit\Documents\rtr\3d-engine\src\Shader.cpp" />
+    <ClCompile Include="C:\Users\lalit\Documents\rtr\3d-engine\src\Timer.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

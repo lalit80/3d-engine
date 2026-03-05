@@ -13,6 +13,9 @@
 // custom header files
 #include "Shader.h"
 #include "Logger.h"
+#include "Camera.h"
+#include "Timer.h"
+#include "Input.h"
 
 
 #endif // OGL_H
